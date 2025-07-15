@@ -1,1 +1,187 @@
+print("Hello World!")
+print("hello CGI Batchmates")
+print("hello what are you doing?")
+#identation error: no need to use unneccesary space prefix to the codeline
+#comment in python language
+
+#shift+3 ==>#
+
+
+
+print('"hello hi jcgsyh byshcisn susujcinc budhqindkqamdx avcujdiqm"')
+
+#\n is a new line used in the python to seperate the lines
+
+
+print("Filler text is text that shares some characteristics of a real written text,\n"
+      " but is random or otherwise generated. It may be used to display a sample of fonts,\n "
+      "generate text for testing, or to spoof an e-mail spam filter.")
+
+
+# here a we call it as variable,this variable can be character,word,sentence
+a = 100 # here storing the value 100 in the variable a
+ballon = 200 #here we are storing the value 200 in the variable ballon
+calculated_value_given = a+ballon # =100+200=300
+print("the addition of two variables is ",calculated_value_given)
+
+
+# int/integer = -infinity to infinity
+# string = "a", "word", "sentence",'a',"'a'"
+# float =10.5,100.0,45.2,65.5
+
+x = 100
+print(type(x))
+
+y = "cgi company"
+print(type(y))
+
+z = 100.0
+print(type(z))
+
+#type casting
+abc = 100
+print(type(abc))
+bcd = float(abc)
+print(bcd)
+print(type(bcd))
+
+
+
+xyz = "5"
+print(type(xyz))
+wsy = int(xyz)
+print(wsy)
+print(type(wsy))
+
+
+#assigning the value to the multiple variables
+
+shreya = amitha = vidya = raksha = priyusha = abhignya= deekshitha = gagana = "CGI Company"
+
+print("shreya is one of the employee of",shreya)
+print("amitha is one of the employee of",amitha)
+print("vidya is one of the employee of",vidya)
+print("raksha is one of the employee of",raksha)
+print("priyusha is one of the employee of",priyusha)
+print("abhignya is one of the employee of",abhignya)
+print("deekshitha is one of the employee of",deekshitha)
+print("gagana is one of the employee of",gagana)
+
+#output variables
+x = "python"
+y = "class"
+z = "learning"
+print(x,y,z)
+print("here am using + symbol to get the values of xyz", x +" "+ y+" " + z)
+
+#python is a case sensitive
+Ready = "something"
+B = "somethingelse"
+print(Ready)
+print(B)
+#print(b)
+
+#indentation error : unneccesary spaces given
+# name error : calling the unknown value
+
+apple = "it is a fruit"
+print(len(apple))
+# character space is also countable in the length method
+#len(),upper(),lower() this is called as methods
+
+
+a = True
+b = int(a)
+print(b)
+
+
+
+
+
+#strings in detail
+#iteration,enumeration,indexing
+
+
+sum = "cgi_Assessment"
+# for measuring the length it starts from indexing 1
+#but when you are accessing the elements from the string the index number starts from zero
+c = 0  -14
+g = 1  -13
+i = 2  - 12
+_ = 3  -11
+a = 4  -10
+s = 5  -9
+s = 6  -8
+e = 7  -7
+s = 8 -6
+s = 9 -5
+m = 10 -4
+e = 11 -3
+n = 12 -2
+t = 13 -1
+
+print(sum[2:9])#indexing with slicing
+print(sum[2:])
+print(sum[:12])
+print(sum[-8:-1])#negative indexing with slicing
+print(sum[-14:])
+
+#string methods
+str = "Hello Employee"
+print(str.upper())
+print(str.lower())
+print(str.replace("e","i"))
+print(str.replace("E","j"))
+  #concatenation of strings
+alpha = "Hello"
+beta = "Guest"
+c = alpha + " "+beta
+print(c)
+
+
+
+#formatting the strings
+abc = 100
+bcd = "apple"
+print(f"here the value of {bcd} is {abc}")
+
+
+age = 20
+txt = f"my name is hello, and i am {age} years old"
+print(txt)
+
+#escape characters
+paragraph = "bangalore weather is too good, and its \"raining\" now"
+print(paragraph)
+
+
+
+#boolean means True or False
+
+print(100>101)
+print(100>90)
+
+a = "string"
+b = 100
+
+print(bool(a))
+print(bool(b))
+
+#operators
+#1. Arithmetic operators
+
+abc = 21
+bcd = 4
+print(abc % bcd)
+
+print(abc ** bcd) #10x10x10x10x10
+
+print(abc //bcd)
+
+
+#assignment operators
+x = 5
+x+= 5# ==> x = x+5 =5+5 =10
+# here x = x+5 = 5=5 = 10 here we are adding the x+x
+x -= 5 #==> x = x-5 =5-5 =0
 
