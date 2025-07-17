@@ -1,1 +1,202 @@
-day 2 assessments will be added here
+#what is Datastructure?
+# it is way of organizing and storing the data,and you can access that stored data
+#built in datastructures
+#1.list
+#2.tuple
+
+#3. set
+#4.dictionary
+#what is list?
+a=[]
+b = [1,2,3,4,5,6,7,8,9] #passing some integers which we call it as elementd
+c = [1,"cgi",10.4]
+d = list((5,6,7))
+print(a)
+print(b)
+print(c)
+print(d)
+print(b[1])
+print(b[-1])
+print(b[2:5])
+
+# list operations
+a = [1,2]
+b = [3,4]
+print(f"the addition of{a} and {b} is: ",a+b)
+print(f"the multiplication of variable{a} with two is:",a*2)
+print(f"to check whether the given element is in the variable {b}:",3 in b)
+print(len(a))
+# list methods
+#sort()
+xyz = [10,50,20,100,300,200,-1,-10,-5,-30]
+xyz.sort()
+print(xyz)
+
+list_app = [1,2,3,4,5]
+#append()
+list_app.append(6)
+print(list_app)
+
+#insert()
+accessories = ["phone","tv","powerbank","laptop"]
+accessories.insert(1,"tab")
+accessories.extend(["samsung","Apple"])
+print(accessories)
+
+#extend() vs append()
+a1 = [1,2]
+a1.append([3,4])
+print(a1)
+a2 = [1,2]
+a2.extend([3,4])
+print(a2)
+
+name = input("enter your name:")
+print("hello",name)
+
+age = int(input("enter your age:"))
+print("you are",age,"years old")
+
+price = float(input("enter the price:"))
+print("price entered",price)
+
+numbers = list(map(int, input("enter numbers seperated by space:").split()))
+print("numbers entered",numbers)
+
+a,b = input("enter two numbers seperated by space:").split()
+print("first number:",a)
+print("second number",b)
+
+a1 = int(input("enter the number:"))
+b1 = int(input("enter the second number"))
+print("sum is:",a1 + b1)
+
+answer for 20th question in the assessment
+
+add = sum(map(int,input("enter the numbers seperated by space:").split()))
+print("sum is:",add)
+
+import math
+mul = list(map(int,input("enter the numbers seperated by space:").split()))
+print("multiplication result:",math.prod(mul))
+
+#boolean means True or False
+
+print(100>101)
+print(100>90)
+
+a = "string"
+b = 100
+
+print(bool(a))
+print(bool(b))
+
+#operators
+#1. Arithmetic operators
+
+abc = 21
+bcd = 4
+print(abc % bcd)
+
+print(abc ** bcd) #10x10x10x10x10
+
+print(abc //bcd)
+
+
+#assignment operators
+x = 5
+x+= 5# ==> x = x+5 =5+5 =10
+# here x = x+5 = 5=5 = 10 here we are adding the x+x
+x -= 5 #==> x = x-5 =5-5 =0
+
+#comparision operator
+
+a = 100
+b = 50
+print(a==b) #100== 50 False
+print(a!=b) # 100!= 50 True
+print(a>b)# 100>50 True
+print(a<b)#100<50 False
+print(a>=b)#100>=50 True
+print(b<=a)#100<=50 True
+
+
+
+
+print("apple"=="banana") #False
+print("apple">"kiwi") #True
+print("kiwi">="kiwi")#True
+
+
+#logical operator
+print(a >25 and a<125)
+print(a >25 or a<25)
+print(not(a>25 and a>125))
+var = ("hello","hi","doing")
+print(var)
+
+empty = ()
+print(empty)
+single = (10,)
+print(single)
+fixed = (1,100.0,"apple")
+print(fixed)
+
+t = (10,20,30,40,50)
+print(t)
+#t.append(60)
+#print(t)
+print(t[3])
+print(t[-2])
+print(t[1:4])
+
+
+tuple_access = (10,20,30,40)
+list_access = list(tuple_access)
+print(list_access)
+list_access[1] = 10
+print(type(list_access))
+tuple_access = tuple(list_access)
+print(tuple_access)
+print(type(tuple_access))
+
+
+#swapping the numbers
+a,b = 10,20
+print("the value of a is:",a,"the value of the b is:",b)
+a,b = b,a # a= b=20,b=a=10
+print("the value of a is:",a,"the value of the b is:",b)
+
+
+#set
+myset = {5,1,2,3,4,1,2,3,4,5}
+
+print(myset)
+#set is unordered,accessing elements is not possible,it doesn't allow duplicates
+
+
+a = [1,1,1,2,2,2,3,3,4,4,5,5,6,6]
+b = set(a)
+print(b)
+
+#set methods
+s = {1,2,3}
+s.add(7)
+print(s) #{1,2,3,7
+s.remove(2)
+print(s)#key error
+s.discard(3)
+print(s) #{1,2,7}
+
+var = {1,2}
+var1 = {2,3}
+print(var.union(var1))
+print(var.intersection(var1))
+
+a = {1,2,3,4,5}
+print(3 in a)
+
+num = 5
+if(num>0 and num<10)or not(num %2==0):
+    print("logical operators AND,OR,NOT can be handled in the single condition with control statement" )
+
