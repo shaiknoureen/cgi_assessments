@@ -1,1 +1,137 @@
-day 3 class content and assesments will be added here
+dict1 = {"first_name":"shaik",
+         "last_name":"noureen",
+         "technology":"python"}
+#print(dict1)
+print(dict1["first_name"])#accessing the dictionary
+dict1["email"] = "abc@gmail.com"#adding the new pair
+#print(dict1)
+dict1["technology"] = "java"#updating the dictionary
+del dict1["email"]#deleting the element from the dictionary
+print(dict1.get("first_name"))
+print(dict1.get("email"))
+print(dict1)
+
+print(dict1.keys())
+print(dict1.values())
+print(dict1.items())
+print(dict1.pop("technology"))
+print(dict1.clear())
+
+
+#example of dictionary
+student = {"name":"cgi","marks":85}
+print(student["name"])
+student["grade"] = "A"
+print(student)
+student["marks"] = 90
+print(student)
+del student["grade"]
+print(student)
+
+if "marks" in student:
+    print("marks are present in the dictionary")
+for key,value in student.items():
+    print(key,":",value)
+#simple calculator
+a = float(input("enter first number:"))
+b = float(input("enter second number:"))
+op = input("enter operator(+,-,*,/)")
+if op== "+":
+    print("result",a+b)
+elif op== "-":
+    print("result",a-b)
+elif op== "*":
+    print("result", a * b)
+elif op== "/":
+    if b!=0:
+     print("result", a / b)
+
+    else:
+        print("cannot divide by zero")
+else:
+    print("invalid operator")
+
+
+#reverse a string
+text = input("enter the string:") #python
+reversed_text = text[::-1] #nohtyp [::-1] first colon takes the whole string to -1
+print("reversed string is :",reversed_text)
+
+#palindrome
+#malayalam = malayalam
+#madam = madam
+text1 = input("enter the string:")#malayalam
+if text1 == text1[::-1]: #malayalam == malayalam malayalam
+    print(f"{text1},is a palindrome")
+else:
+    print(f"{text1},is not  a palindrome")
+
+
+
+#leap year program
+year = int(input("enter a year:"))
+if(year % 4==0 and year%100 !=0) or (year%400 ==0):
+    print(f"{year},is a leap year")
+else:
+    print(f"{year},is not a leap year")
+
+for i in range(1,4):#1,2,3
+    for j in range(1,6):#1,2,3,4,5
+        print(f"{i}x{j}={i*j}")
+    print("---------")
+
+
+
+for i in range(1,4):#1,2,3
+    for j in range(1,4):#1 2 3
+        print("*",end = " ")
+    print()
+
+
+for i in range(1,5):#1,2,3,4
+    for j in range(1,i+1):
+        print("*", end=" ")
+    print()
+
+#i = 1 j = 1  *
+#i = 2 j = 1,2 **
+#i = 3 j = 1,2,3 ***
+#i = 4 j = 1,2,3,4 ****
+
+for i in range(1,5):#1,2,3,4
+    for j in range(1,i+1):
+        print(j, end=" ")
+    print()
+
+
+
+#flow of the project
+#1.input
+#2.store  in the list
+#3.display the list
+#4.converting list to the tuple
+#5.converting to the set
+#6.for loop
+#7.end
+
+#fruits collector
+
+fruits = []
+n = int(input("enter number of favorite fruits:"))
+for i in range(n):
+    fruit = input(f"enter fruit {i+1}:")
+    fruits.append(fruit)
+print("\n---- your favourite fruits list----")
+print(fruits)
+
+fruits_tuple = tuple(fruits)
+print("\n---- your favourite fruits as tuple----")
+print(fruits_tuple)
+
+unique_fruits = set(fruits)
+print("\n -----unique favourite fruits -----")
+print(unique_fruits)
+
+print("\n---- listing your favourite fruits----")
+for fruit in fruits:
+    print(fruit)
