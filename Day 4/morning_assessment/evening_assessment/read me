@@ -1,0 +1,132 @@
+#dictionary Project
+#add students and marks
+#update marks
+#view students
+#search student by name
+#delete student
+
+students = {}
+def add_student(name,marks):
+    students[name] = marks
+    print(f"{name} added with marks {marks}")
+def update_marks(name,new_marks):
+    if name in students:
+        students[name] = new_marks
+        print(f"{name} updated with marks {new_marks}")
+def view_students():
+    if not students:
+        print("no students are available")
+    else:
+        for name,marks in students.items():
+            print(f"{name}:{marks}")
+def search_student(name):
+    if name in students:
+        print(f"{name}, found with marks {students[name]}")
+    else:
+        print(f"{name},is not found")
+def delete_student(name):
+    del students[name]
+    if name in students:
+        print(f"{name},is deleted")
+    else:
+        print(f"{name},is not found")
+
+add_student("shreya",85)
+add_student("raksha",86)
+add_student("abhigna",75)
+add_student("gagana",70)
+add_student("vidya",80)
+add_student("amitha",65)
+add_student("deekshita",75)
+view_students()
+update_marks("abhigna",85)
+update_marks("amitha",75)
+search_student("shreya")
+delete_student("amitha")
+view_students()
+
+
+for i in range(3):
+    print("hi")
+
+count = 0
+while count <= 3: #it can be < or =
+    print("this is while loop","hi")
+    count += 1
+#atm machine simulation
+#while loop,if and else,elif
+balance = 1000
+while True:
+    print("\n-----ATM Menu-----")
+    print("1.check Balance")
+    print("2.Deposit Money")
+    print("3.Withdraw Money")
+    print("4.Exit")
+
+    choice = int(input("enter your choice:"))
+    if choice == 1:
+        print(f"your balance:{balance}")
+    elif choice == 2:
+        amount = float(input("enter amount to deposit:"))
+        balance += amount
+        print(f"deposied {amount},new balance is {balance}")
+    elif choice == 3:
+        amount = float(input("enter amount to withdraw:"))
+        balance -= amount
+        print(f"withdraw {amount},new balance is {balance}")
+    elif choice == 4:
+        print("thank you for using the ATM")
+        break
+    else:
+        print("invalid choice! please select 1-4")
+#function is a block
+
+#def function_name(parameters):
+ #   return result
+#function_name()
+
+def welcome():
+    print("welcome to python!")
+welcome()
+
+def multiply(a,b):
+    print(a*b)
+multiply(3,4)
+
+def square(x):
+    return x*x,x+x,x-x,x/x
+print(square(5))
+
+#default arguments
+def greetings(name = "guest"):
+    print("hello",name)
+
+greetings()
+greetings("noureen")
+
+#assigning the function name to the variable
+def operations(a,b):
+    return a+b,a-b,a*b,a/b
+add,min,mul,div = operations(50,25)
+print(add,min,mul,div)
+
+#nested functions
+def outer():
+    print("i am outer function")
+
+    def inner():
+        print("i am inner function")
+    inner()
+outer()
+#*args,Kwargs
+def show_args(*args):#multiple position value
+    for arg in args:#arg = (1,2,3,4,5,6)
+        print(arg)
+
+show_args(1,2,3,4,5,6)
+
+def show_kwargs(**kwargs): #multiple keyword value name = "cgi"
+    for key,value in kwargs.items():#((name = "cgi"),(employees= 2000),(location = "bangalore))
+        print(key,":",value)
+
+show_kwargs(name = "cgi",employees= 2000,location = "bangalore")
