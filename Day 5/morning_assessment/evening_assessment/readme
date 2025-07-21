@@ -149,3 +149,20 @@ def log_user_ip(ip):
 def sayhello():
    print("hello")
 sayhello()
+
+
+
+import logging
+import time
+logging.basicConfig(filename='process.log',level = logging.INFO)
+def log_start_end(func):
+      def wrapper(*args,**kwargs):
+         logging.info(f"function {func.__name__} started")
+         result = func(*args,**kwargs)
+      return wrapper
+@log_start_end
+def sayhello():
+   print("processing data....")
+   time.sleep(20)
+   print("data processed successfully")
+sayhello()
