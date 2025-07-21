@@ -104,3 +104,18 @@ def view_settings(user_email):
 
 print(view_dashboard("admin@cgi.com"))
 print(view_settings("guest@cgi.com"))
+
+
+
+
+
+import logging
+logging.basicConfig(filename='exceptions.log',level = logging.ERROR)
+def error_handled_function():
+   try:
+      1/0
+   except Exception as e:
+      logging.error("error occured: %s,e")
+      raise
+
+error_handled_function()
