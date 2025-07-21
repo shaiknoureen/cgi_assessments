@@ -119,3 +119,19 @@ def error_handled_function():
       raise
 
 error_handled_function()
+
+
+import logging
+logging.basicConfig(filename='user_ip.log',level = logging.INFO)
+def log_user_ip(ip):
+   def decorator(func):
+      def wrapper(*args,**kwargs):
+         logging.info(f"function {func.__name__} called by user with IP  {ip}")
+         return func(*args,**kwargs)
+      return wrapper
+   return decorator
+
+@log_user_ip("192.168.0.100")
+def sayhello():
+   print("hello")
+sayhello()
