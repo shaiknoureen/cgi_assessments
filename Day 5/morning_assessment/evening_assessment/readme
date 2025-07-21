@@ -1,0 +1,94 @@
+#creating anonymous function
+#lambda arguements :expression
+var = lambda a,b : a+b
+print("this is for addition",var(3,4))
+
+var = lambda x : x *x
+print("this is for power",var(5))
+
+#sorted()
+students = [("alice",85),("charlie",55),("noureen" ,95)]
+sorted_students = sorted(students,key = lambda x:x[1],reverse= True)
+print(sorted_students)
+
+
+#filter(),map(),reduce()
+
+numbers = [1,2,3,4,5]
+
+evens = list(filter(lambda x : x%2==0,numbers))
+
+print(evens)
+
+squares =list( map(lambda x : x*x,numbers))
+print(squares)
+
+from functools import reduce
+total = reduce(lambda a,b :a+b, numbers) #a= 1,b = 2= 3
+print(total)
+
+#nested functions
+def outer(func):
+    def inner():
+        print("before adding decorator")
+        func()
+        print("after adding decorator")
+    return inner #return the function don't need to call it
+
+@outer
+def say_hello():
+    print("hello")
+    print("this is the basic example of decorator")
+    a = 100
+    b= 200
+    c = a+b
+    print(c)
+
+
+say_hello()
+
+# logging
+#authorization
+
+def logger(func):
+    def wrapper(*args,**kwargs):
+        print(f"calling {func.__name__} with {args} {kwargs}")
+        return func(*args,**kwargs)
+    return wrapper
+
+@logger
+def add(a,b,multiplier=1):
+    return a * b
+print(add(100,200,multiplier=2))
+
+
+#admin
+#guest
+#admin access to view the dashboard as well as the settings
+#guest do have access to view only dashboard
+#from pkg_resources import non_empty_lines
+
+
+def authorize(email_allowed):
+    def decorator(func):
+        def wrapper(user_email,*args,**kwargs):
+            if  user_email== email_allowed:
+                print(f"access granted to {user_email}")
+                return func(user_email,*args,**kwargs)
+            else:
+                print(f"access denied to {user_email}")
+                #func()
+                return "unauthorized Access"
+        return wrapper
+    return decorator
+
+@authorize("admin@cgi.com")
+def view_dashboard(user_email):
+    return f"welcome {user_email}! here is your dashboard"
+@authorize("guest")
+def view_settings(user_email):
+    return f"{user_email}, can change settings"
+
+
+print(view_dashboard("admin@cgi.com"))
+print(view_settings("guest@cgi.com"))
