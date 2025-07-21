@@ -30,6 +30,20 @@ print(total)
 
 
 
+import logging
+from logging.handlers import RotatingFileHandler
+
+logger = logging.getLogger('rotating_logger')
+logger.setLevel(logging.INFO)
+
+handler = RotatingFileHandler('rotate.log',maxBytes=1000,backupCount=2)
+logger.addHandler(handler)
+
+logger.info("this ia a rotating log message")
+
+
+
+
 
 import logging
 logging.basicConfig(filename='app.log',level = logging.INFO)
