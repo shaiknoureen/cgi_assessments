@@ -139,8 +139,129 @@ b = [4,5,6]
 result = map(lambda x,y :x + y,a,b)
 print(list(result))
 
+#python is a learning language and is easily understanble
+
+#1.create a file
+#2.read a filehandling
+#3# python :1 dictionary
+#4 counter
+with open("word_frequency_counter.txt",'w') as file:
+    file.write("python is easy to learn. \n")
+    file.write("learning python is fun and rewarding. \n")
+    file.write("python is easy and powerful. \n")
+
+word_count = {}
+
+with open("word_frequency_counter.txt",'r') as file:
+    for line in file:
+        words = line.strip().split()
+        for word in words:
+            word = word.lower().strip('.,?!')
+            word_count[word] = word_count.get(word,0)+1
+print("word frequency in the file:")
+for word,count in word_count.items():
+    print(f"{word}:{count}")
 
 
+def divide(a,b):
+    try: #run the risky code
+     result = a/b
+    except ZeroDivisionError: #runs if error happens
+     print("cannot divide by zero")
+    else:
+     print(f"division successful result :{result}") #if there is no error
+    finally:#always runs,whether error occurs or not
+        print("division operation completed")
+
+
+print(divide(10,0))
+
+
+#read,write,update,delete
+
+#suntax : file = open("exp.txt",mode)
+
+#mode
+#1. read  'r'
+#2.write  'w'
+#3.append  'a'
+#4. 'x' fails if file exists
+#5 binary 'b'
+#6text mode 't'
+#7 read & write '+'
+
+#write to a file and read it
+
+with open('sample.txt','w') as file:
+    file.write("hello python!\n")
+    file.write("this is file I/O example")
+with open('sample.txt','r') as file:
+    content = file.read()
+    print(content)
+
+
+#append data and read the file
+with open('sample.txt','a') as file:
+    file.write("\n this line added as a new line with append mode")
+with open('sample.txt','r') as file:
+    print(file.read())
+
+
+
+
+with open('sample.txt','r') as file:
+    for i in file:
+        print(i.strip())
+
+import os
+if os.path.exists('sample.txt'):
+    print("file exists,deleting it now")
+    os.remove('sample.txt')
+else:
+    print("file does not exist")
+
+
+
+def access_file(username):
+    allowed_users =['user1','user2']
+    if username in allowed_users:
+        with open('linesexample.txt', 'r') as file:
+            print(file.read(20))
+
+    else:
+        print("Access Denied")
+
+access_file('user1')
+access_file('guest')
+
+
+with open('sample.txt','w') as file:
+    file.write("hello python!\n")
+    file.write("this is file I/O example \n")
+    file.write("this is file I/O example \n")
+    file.write("this is file I/O example \n")
+    file.write("this is file I/O example \n")
+with open('sample.txt','r') as file:
+    content = file.readlines(1)
+    print(content)
+
+
+def access_file(username):
+    allowed_users =['user1','user2']
+    if username in allowed_users:
+        with open('linesexample.txt', 'r') as file:
+            file.write("hello python!\n")
+            file.write("this is file I/O example \n")
+            file.write("this is file I/O example \n")
+            file.write("this is file I/O example \n")
+            file.write("this is file I/O example \n")
+            print(file.read())
+
+    else:
+        print("Access Denied")
+
+access_file('user1')
+access_file('guest')
 
 
 
