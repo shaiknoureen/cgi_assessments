@@ -120,3 +120,38 @@ split_result = re.split(r"\.",txt)
 print("5.split result:",split_result)
 
 #^(?=.*[A-Z]) (?=.*[a-z])(?=.*[0-9])(?=.*[!@#$^&%).{8,}$
+
+
+
+#parent class
+class Animal:
+    def speak(self):
+        print("Animal speaks")
+class Dog(Animal):
+    def bark(self):
+        print("Dog barks")
+
+obj =Dog()
+print(obj.speak()) #inherited method
+print(obj.bark())
+
+
+#e-commerce system base order and online order
+class order:
+    def __init__(self,orderid):
+        self.orderid = orderid
+    def process_payment(self):
+        print(f"processing payment for the order #{self.orderid}")
+class onlineorder(order):
+    def __init__(self,orderid,email):
+        super().__init__(orderid)
+        self.email = email
+
+    def process_payment(self):
+        super().process_payment()
+        print(f"sending the confirmation mail to {self.email}")
+
+
+customer = onlineorder(101,"customer@mcdonalds.com")
+customer.process_payment()
+
