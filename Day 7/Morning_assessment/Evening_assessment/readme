@@ -1,0 +1,122 @@
+#1.account
+#2.balance
+#3.deposit
+#4.withdraw
+#5.exit
+
+class InsufficientFundsError(Exception):
+    """custom exception for insufficient funds"""
+    pass
+class Bankaccount:
+    def __init__(self,owner,balance =0.0):
+        self.owner = owner
+        self.balance = balance
+    def deposit(self, amount, valueError=None):
+        if amount <= 0:
+            raise valueError("deposit amount must be positive")
+        if amount >self.balance:
+            raise InsufficientFundsError("not enough balance to deposit")
+        self.balance += amount
+        print(f"deposit{amount:.2f}.new balance {self.balance:.2f}")
+
+    def withdraw(self, amount, valueError=None):
+        if amount <= 0:
+            raise valueError("withdrawal amount must be positive")
+        if amount > self.balance:
+            raise InsufficientFundsError("not enough balance to withdraw")
+        self.balance -= amount
+        print(f"withdraw{amount:.2f}.remaining balance {self.balance:.2f}")
+    def check_balance(self):
+        print(f"current balance :{self.balance:.2f}")
+def main():
+    account = Bankaccount("noureen",1000.00)
+    while True:
+        print("\n ==== welcome to bank =====")
+        print("1.check balance")
+        print("2.deposit money")
+        print("3.withdraw money")
+        print("4.exit")
+
+        try:
+            choice = int(input("enter your choice(1-4)"))
+            if choice == 1:
+                account.check_balance()
+            elif choice == 2:
+                amount = float(input("enter amount to deposit"))
+                account.deposit(amount)
+            elif choice == 3:
+                amount = float(input("enter amount to withdraw"))
+                account.withdraw(amount)
+            elif choice == 4:
+                print("thank you for banking with us")
+                break
+
+            else:
+                print("invalid choice.enter 1-4 only")
+        except ValueError as ve:
+              print("invalid input.enter numbers only")
+              print("error:",ve)
+        except InsufficientFundsError as ife:
+            print("transaction failed",ife)
+        except Exception as e:
+            print("unexpected error occured",e)
+
+if __name__ == "__main__":
+    main()
+
+
+
+import re
+def is_valid_password(password):
+    pattern = r"^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$^&%]).{8,}$"
+    return bool(re.match(pattern,password))
+test_passwords = ["Abcd!3","Abcd!321cf","abcdef!","A@werc435","ABCDE!345","Abc123!@","Abcdef1!"]
+print("password validation results :\n")
+for pwd in test_passwords:
+    result = "valid" if is_valid_password(pwd) else "invalid"
+    print(f"password: {pwd}:{result}")
+
+
+
+
+
+#re.split()
+#re.compile()
+
+#symbols . newline
+# ^ start of a string
+# $End of string
+# *0 or more repitions
+# +1 or more repitions
+# ? 0 or 1 repitition
+# {m,n}between m and n repitions
+# []matches one character from set
+# [^] matches one character not in set
+# \d  digit(0-9)
+# \Dnon-digit
+# \w word character(a-z,A-Z,0-9,_)
+# \W non word character
+# \swhite space
+# \S non white space
+# ' '
+# group()
+
+import re
+
+txt = "python is powerful.python 3.10 is the latest.i love python!"
+match_result = re.match(r"python",txt)
+print("1.match result:",match_result.group() if match_result else "no match")
+
+search_result = re.search(r"a",txt)
+print("2.search result:",search_result.group() if search_result else "not found")
+
+findall_result = re.findall(r"is",txt)
+print("3.findall result:",findall_result)
+
+sub_result = re.sub(r"python","java",txt)
+print("4.sub result:",sub_result)
+
+split_result = re.split(r"\.",txt)
+print("5.split result:",split_result)
+
+#^(?=.*[A-Z]) (?=.*[a-z])(?=.*[0-9])(?=.*[!@#$^&%).{8,}$
