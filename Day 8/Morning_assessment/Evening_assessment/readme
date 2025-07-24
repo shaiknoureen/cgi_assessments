@@ -192,3 +192,109 @@ obj = Manager()
 obj1 = Developer()
 obj.show_role()
 obj1.show_role()
+import tkinter as tk
+from tkinter import messagebox
+
+
+# Encapsulated Student class
+class Student:
+    def __init__(self, name, marks):
+        self.name = name
+        self.__marks = 0
+        self.set_marks(marks)
+
+    def get_marks(self):
+        return self.__marks
+
+    def set_marks(self, marks):
+        if 0 <= marks <= 100:
+            self.__marks = marks
+        else:
+            messagebox.showerror("Invalid Input", "Marks must be between 0 and 100.")
+
+
+# GUI class
+class StudentApp:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Student Marks Entry")
+        tk.Label(root, text="Student Name:").grid(row=0, column=0, pady=15)
+        self.name_entry = tk.Entry(root)
+        self.name_entry.grid(row=0, column=1)
+        tk.Label(root, text="Marks (0-100):").grid(row=1, column=0, pady=5)
+        self.marks_entry = tk.Entry(root)
+        self.marks_entry.grid(row=1, column=1)
+        tk.Button(root, text="Submit", command=self.submit).grid(row=2, column=0, columnspan=2, pady=10)
+        self.result_label = tk.Label(root, text="")
+        self.result_label.grid(row=3, column=0, columnspan=2)
+
+    def submit(self):
+        name = self.name_entry.get()
+        try:
+            marks = int(self.marks_entry.get())
+            student = Student(name, marks)
+            self.result_label.config(text=f"{student.name}'s marks: {student.get_marks()}")
+        except ValueError:
+            messagebox.showerror("Invalid Input", "Please enter numeric marks.")
+
+
+# Run the app
+root = tk.Tk()
+app = StudentApp(root)
+root.mainloop()
+
+
+
+
+#Abstraction can be achieved
+#abstract classes
+#abstract method
+from abc import ABC,abstractmethod
+class Animal(ABC):#abstract Base Class #abstract class
+    @abstractmethod
+    def make_sound(self):
+        pass
+
+#concrete class
+class Dog(Animal):
+    def make_sound(self):
+        return "Bow Bow"
+
+class Cat(Animal):
+    def make_sound(self):
+        return "Meow Meow"
+
+obj = Dog()
+print(obj.make_sound())
+
+obj1 = Cat()
+print(obj1.make_sound())
+
+
+
+
+from abc import ABC, abstractmethod
+class Notification(ABC):
+    @abstractmethod
+    def send_notification(self, message):
+        pass
+class EmailNotification(Notification):
+    def send_notification(self, message):
+        print(f"Sending Email: {message}")
+class SMSNotification(Notification):
+    def send_notification(self, message):
+        print(f"Sending SMS: {message}")
+class PushNotification(Notification):
+    def send_notification(self, message):
+        print(f"Sending Push Notification: {message}")
+# Usage
+def notify_user(notification_type, message):
+    notification_type.send_notification(message)
+email = EmailNotification()
+sms = SMSNotification()
+push = PushNotification()
+notify_user(email, "Your order has been shipped.")
+notify_user(sms, "Your OTP is 456789.")
+notify_user(push, "New update available!")
+
+
