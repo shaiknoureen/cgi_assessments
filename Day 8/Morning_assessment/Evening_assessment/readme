@@ -1,0 +1,194 @@
+#inheritance basic project
+
+import tkinter as tk
+from tkinter import messagebox
+
+# ---------- Inheritance Classes ----------
+
+class Device:
+    def __init__(self, name):
+        self.name = name
+
+    def status(self):
+        return f"{self.name} is online."
+
+class SmartDevice(Device):
+    def control(self):
+        return f"Controlling {self.name} remotely."
+
+class SensorDevice(SmartDevice):
+    def read_data(self):
+        return f"{self.name} is collecting sensor data."
+
+class SecurityFeature:
+    def alert(self):
+        return "Security Alert: Motion detected!"
+
+class SmartSecurityDevice(SmartDevice, SecurityFeature):
+    def activate_security(self):
+        return f"{self.name} security system activated.\n{self.alert()}"
+
+class User:
+    def __init__(self, username):
+        self.username = username
+
+    def login(self):
+        return f"{self.username} logged in."
+
+class Admin(User):
+    def control_all_devices(self):
+        return f"Admin {self.username} controls all devices."
+
+class Employee(User):
+    def access_device(self, device_name):
+        return f"{self.username} accessed {device_name}."
+
+
+# ---------- GUI App ---------- #Graphical User Interface
+
+class SmartOfficeGUI:
+    def __init__(self, root):
+        self.root = root
+        self.root.title("Smart Office System (Inheritance Demo)")
+        self.root.geometry("500x400")
+        self.device = None
+        self.user = None
+
+        # Title Label
+        tk.Label(root, text="Smart Office Control Panel", font=("calibri", 21, "bold")).pack(pady=10)
+
+        # Device selection
+        self.device_var = tk.StringVar()
+        self.device_var.set("SensorDevice")
+        tk.Label(root, text="Select Device Type:").pack()
+        tk.OptionMenu(root, self.device_var, "SmartDevice", "SensorDevice", "SmartSecurityDevice").pack()
+
+        tk.Label(root, text="Device Name:").pack()
+        self.device_name_entry = tk.Entry(root)
+        self.device_name_entry.pack()
+
+        # User Login
+        tk.Label(root, text="\nLogin As:").pack()
+        self.user_var = tk.StringVar()
+        self.user_var.set("Admin")
+        tk.OptionMenu(root, self.user_var, "Admin", "Employee").pack()
+
+        tk.Label(root, text="Username:").pack()
+        self.username_entry = tk.Entry(root)
+        self.username_entry.pack()
+
+        # Buttons
+        tk.Button(root, text="Login", command=self.login_user).pack(pady=5)
+        tk.Button(root, text="Create Device", command=self.create_device).pack(pady=5)
+        tk.Button(root, text="Perform Actions", command=self.perform_actions).pack(pady=10)
+
+        # Output Box
+        self.output_box = tk.Text(root, height=8, width=60)
+        self.output_box.pack(pady=10)
+
+    def login_user(self):
+        username = self.username_entry.get()
+        user_type = self.user_var.get()
+
+        if user_type == "Admin":
+            self.user = Admin(username)
+            msg = self.user.login()
+            self.user.control_all_devices()
+        else:
+            self.user = Employee(username)
+            msg = self.user.login() + "\n" + self.user.access_device(self.device_var.get())
+
+        self.output_box.insert(tk.END, msg + "\n\n")
+
+    def create_device(self):
+        device_name = self.device_name_entry.get()
+        device_type = self.device_var.get()
+
+        if device_type == "SmartDevice":
+            self.device = SmartDevice(device_name)
+        elif device_type == "SensorDevice":
+            self.device = SensorDevice(device_name)
+        elif device_type == "SmartSecurityDevice":
+            self.device = SmartSecurityDevice(device_name)
+
+        self.output_box.insert(tk.END, f"{device_type} '{device_name}' created.\n\n")
+
+    def perform_actions(self):
+        if not self.device:
+            messagebox.showerror("Error", "Create a device first!")
+            return
+
+        output = self.device.status() + "\n" + self.device.control()
+
+        if isinstance(self.device, SensorDevice):
+            output += "\n" + self.device.read_data()
+
+        if isinstance(self.device, SmartSecurityDevice):
+            output += "\n" + self.device.activate_security()
+
+        self.output_box.insert(tk.END, output + "\n\n")
+
+
+# ---------- Run the App ----------
+if __name__ == "__main__":
+    root = tk.Tk()
+    app = SmartOfficeGUI(root)
+    root.mainloop()
+
+
+
+
+import os,sys
+class Order:
+    def process(self):
+        print("processing basic order")
+class onlineorder(Order):
+    def process1(self):
+        super().process()
+        print("adding delivery address and email confirmation")
+
+class primeorder(onlineorder):
+    def process(self):
+        super().process()
+        super().process1()
+        print("fast attributes with prime benefits")
+
+
+obj = primeorder()
+obj.process()
+
+
+#multiple inheritance
+
+class camera:
+    def feature(self):
+        print("photo clicked")
+class gps:
+    def feature1(self):
+        print("location cracked")
+class smartphone(camera,gps):
+    def feature(self):
+        super().feature()
+        super().feature1()
+        print("smart features loaded")
+obj = smartphone()
+obj.feature()
+
+#employee---->manager,developer
+
+class Employee:
+    def login(self):
+        print("Employee logged in")
+class Manager(Employee):
+    def show_role(self):
+        super().login()
+        print("role:manager")
+class Developer(Employee):
+    def show_role(self):
+        super().login()
+        print("role:developer")
+
+obj = Manager()
+obj1 = Developer()
+obj.show_role()
+obj1.show_role()
