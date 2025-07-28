@@ -1,0 +1,33 @@
+#basic data structure
+#1d array with labels
+import pandas as pd
+data = pd.Series([10,20,30])
+#print(data)
+
+#2d table with rows & columns
+
+var = {'name':["mayuri","vyshnavi","keerthi","amitha","vidya","raksha","abhigna","gagana"],"age":[5,30,26,15,12,18,19,20],"city":["delhi","bangalore","chennai","chennai","mumbai","hyderabad","pune","kolkatta"]}
+#dataframe
+df = pd.DataFrame(var)
+#print(df)
+
+#df = pd.read_csv('file.csv')
+print(df.head(3)) # first 5 rows
+print(df.tail(3))
+print(df.shape)
+print(df.dtypes)
+print(df.columns)
+print(df.describe())
+print(df['name'])
+print(df["age"]>15)
+
+df["salary"] = [1000,2000,3000,500,700,800,5000,900]
+print(df)
+
+df.drop("city",axis =1 ,inplace = True)
+print(df)
+
+sorted_df = df.sort_values(by='age',ascending = True)
+print(sorted_df)
+
+
