@@ -52,4 +52,56 @@ print(df)
 df_clean = df.dropna()
 print(df_clean)
 
+import pandas as pd
+data = {"students":["shaik","david","rahul","ammu"],"age":[20,30,25,35],"marks":[550,250,350,600]}
+df = pd.DataFrame(data,index=['a','b','c','d'])
+print(df)
+print(df.loc['b'])
+print(df.loc[['b','c']])
+print(df.loc['b',["students","marks"]])
+print(df.loc[df["age"]>20])
+print(df.loc["a","age"] != 20)
+print(df.loc[ :"country"] == 'india')
+
+
+
+
+
+import numpy as np
+arr1 = np.array([1,2,3,4,5,6])
+arr2 = np.array([10,20,30,40,50,60])
+print("array 1:",arr1)
+print("array 2:",arr2)
+
+#array operation
+sum_arr = arr1+arr2
+print("\n sum of arrays:",sum_arr)
+#2d array
+matrix = np.array([[1,2],[3,4],[5,6]])
+print("\n 2D Array(Matrix): \n:",matrix)
+
+#generate arrays using functions
+zeros = np.zeros((4,3))
+ones = np.ones((4,3))
+randoms = np.random.rand(3,3)
+
+print("\n Zeros: \n",zeros)
+print("\n ones: \n",ones)
+print("\n random values: \n",randoms)
+
+#reshape and indexing
+reshaped = np.arange(12).reshape(2,6)
+print("\n reshaped array:\n",reshaped)
+print("element at row 3 ,col3:",reshaped[1,2])
+
+#handling NaN values
+nan_arr = np.array([1,2,np.nan,4,np.nan])
+print("\n array with nan:",nan_arr)
+print("is NaN:",np.isnan(nan_arr))
+
+nan_arr_clean =np.nan_to_num(nan_arr,nan=10.0)
+print("\n NaN is replaced by zero:",nan_arr_clean)
+
+
+
 
