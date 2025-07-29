@@ -1,0 +1,29 @@
+ Pandas Questions
+1.	How do you read a CSV file and display the first 10 rows?
+2.	How do you find the number of rows and columns in a DataFrame?
+3.	Given a DataFrame df, how do you display only the rows where age > 25?
+4.	Replace all missing values in column salary with the mean salary.
+5.	How do you rename the column emp_id to employee_id?
+6.	How to drop duplicate rows in a DataFrame?
+7.	How do you convert a column of string dates "2023-05-01" into datetime format?
+8.	How to group a DataFrame by department and find the total salary for each?
+9.	How do you sort a DataFrame by date in descending order?
+10.	Create a new column total_marks by adding three columns: math, science, and english.
+11.	How do you filter rows where column score is between 40 and 80?
+12.	Display the top 3 rows with the highest values in column sales.
+13.	Find the average, min, and max of the price column using a single function.
+14.	How to set a column (e.g., date) as the index of a DataFrame?
+15.	Convert a categorical column gender (with values M/F) into numeric using mapping (M → 1, F → 0).
+________________________________________
+ NumPy Questions
+16.	Create a 1D NumPy array from 0 to 9.
+17.	Create a 3x3 NumPy array filled with random integers between 1 and 100.
+18.	How do you find the mean and standard deviation of a NumPy array?
+19.	Given an array, replace all values greater than 50 with 50.
+20.	Create a NumPy array and reshape it from 1D to 2D (e.g., 12 elements → 3x4).
+21.	Find the number of even numbers in a NumPy array.
+22.	How do you flatten a 2D NumPy array to 1D?
+23.	Create an array of 10 random floats between 0 and 1.
+24.	Multiply two NumPy arrays element-wise.
+25.	Given a NumPy array, how do you find the index of the maximum value?
+
