@@ -27,3 +27,117 @@ ________________________________________
 24.	Multiply two NumPy arrays element-wise.
 25.	Given a NumPy array, how do you find the index of the maximum value?
 
+import pytest
+import sys
+def test_addition():
+    assert 1 + 2 == 3
+    @pytest.mark.skipif(sys.version_info<(3,9),reason="requires python 3.9 or higher")
+    def test_dict_merge_operator():
+        a = {"x":1}
+        b = {"y": 2}
+        result = a | b
+        assert  result =={"x":1,"y":2}
+import pytest
+import sys
+def test_addition():
+    assert 1 + 2 == 3
+    @pytest.mark.skipif(sys.version_info<(3,9),reason="requires python 3.9 or higher")
+    def test_dict_merge_operator():
+        a = {"x":1}
+        b = {"y": 2}
+        result = a | b
+        assert  result =={"x":1,"y":2}
+
+
+# test_calculator.py
+
+import unittest
+import calculator  # import the file to test
+
+class TestCalculator(unittest.TestCase):
+
+    def test_add(self):
+        self.assertEqual(calculator.add(2, 3), 5)
+        self.assertEqual(calculator.add(-1, 1), 0)
+
+    def test_subtract(self):
+        self.assertEqual(calculator.subtract(10, 5), 5)
+        self.assertNotEqual(calculator.subtract(4, 2), 3)
+
+# This runs the test when you run this file directly
+if __name__ == '__main__':
+    unittest.main()
+
+import unittest
+from bank import *
+class TestBankaccount(unittest.TestCase):
+  def setUp(self):
+        self.acc= Bankaccount("noureen",1000)
+  def test_initial_balance(self):
+        self.assertEqual(self.acc.get_balance(), 1000)
+  def test_deposit(self):
+        self.acc.deposit(500)
+        self.assertEqual(self.acc.get_balance(), 1500)
+  def test_withdraw(self):
+        self.acc.withdraw(300)
+        self.assertEqual(self.acc.get_balance(), 700)
+  def test_withdraw_insufficient_funds(self):
+       with self.assertRaises(ValueError):
+           self.acc.withdraw(2000)
+
+  def test_invalid_deposit(self):
+        with self.assertRaises(ValueError):
+            self.acc.deposit(-100)
+
+  def test_invalid_withdraw(self):
+        with self.assertRaises(ValueError):
+            self.acc.withdraw(0)
+if __name__ == '__main__':
+    unittest.main()
+
+
+import pytest
+
+
+def add(a,b):
+    return a+b
+def test_add():
+    assert add(2,3) == 5
+def subtract(a,b):
+    return a-b
+
+def test_subtract():
+    assert add(2,-3) == -1
+
+
+#fixture
+@pytest.fixture
+def sample_data():
+    return {"name":"noureen","technology":"python"}
+def test_sample_data(sample_data):
+    assert sample_data["name"] == "noureen"
+
+def divide(x,y):
+    return x/y
+def test_divide_by_zero():
+    with pytest.raises(ZeroDivisionError):
+        divide(10,0)
+import pytest
+import sys
+def test_addition():
+    assert 1 + 2 == 3
+    @pytest.mark.skipif(sys.version_info<(3,9),reason="requires python 3.9 or higher")
+    def test_dict_merge_operator():
+        a = {"x":1}
+        b = {"y": 2}
+        result = a | b
+        assert  result =={"x":1,"y":2}
+
+
+
+
+
+
+
+
+
