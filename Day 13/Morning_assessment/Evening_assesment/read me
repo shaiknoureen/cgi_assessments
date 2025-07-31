@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+  <style>
+    section{
+    padding:20 px;
+    margin:10px 0;
+    background-color :#f2f2f2;
+    border-radius:8 px
+    }
+  </style>
+</head>
+<body>
+<section>
+  <h2>About us</h2>
+  <p>we are a team of developers building awesome web experiences</p>
+</section>
+<section>
+  <h2>services</h2>
+  <ul>
+    <li>web development</li>
+    <li>ui/ux design</li>
+    <li>Mobile apps</li>
+  </ul>
+</section>
+<section>
+  <h2>contact</h2>
+  <p>Email us at : contact@example.com</p>
+</section>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Html class Extension</title>
+  <style>
+    .city{
+    background-color: tomato;
+    color : white;
+    margin :20px
+    border :2px solid black;
+    padding: 20 px
+
+    }
+    .main{
+    text-align:center;
+    }
+    #myheader {
+     text-align: center;
+     background-color: lightblue;
+     color : black;
+     padding: 40 px
+
+    }
+  </style>
+</head>
+<body>
+<h2>The id attribute</h2>
+<p>this is the feature where we can use in the css to style the application</p>
+<h1 id="myheader">My Header</h1>
+<div class="city main">
+  <h2>London</h2>
+  <p>London, the capital of England and the United Kingdom, is a 21st-century city with history stretching back to Roman times.
+    At its centre stand the imposing Houses of Parliament, the iconic ‘Big Ben’ clock tower and Westminster Abbey,
+    site of British monarch coronations. Across the Thames River, the London Eye observation wheel provides
+    panoramic views of the South Bank cultural complex, and the entire city.</p>
+</div>
+<div class="city">
+  <h2>India</h2>
+  <p>India, officially the Republic of India, is a country in South Asia. It is the seventh-largest country by area;
+    the most populous country since 2023; and, since its independence in 1947, the world's most populous democracy</p>
+</div>
+<div class="city">
+  <h2>USA</h2>
+  <p>The U.S. is a country of 50 states covering a vast swath of North America,
+    with Alaska in the northwest and Hawaii extending the nation’s presence into the Pacific Ocean.
+    Major Atlantic Coast cities are New York, a global finance and culture center, and capital Washington,
+    DC. Midwestern metropolis Chicago is known for influential architecture and on the west coast,
+    Los Angeles' Hollywood is famed for filmmaking</p>
+</div>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" content="width=device-width,initial-scale=1.0">
+    <title>Basic Example</title>
+    <link rel ="icon" href = favicon.ico" type = "image/x-icon">
+    <style>
+        #main-header{
+        background-color:#4CAF50;
+        color:white;
+        padding:20px;
+        text-align : center;
+
+        }
+        #footer{
+        background-color :#333
+        color:white;
+        text-align:center;
+        padding: 10 px
+        margin-top:30 px
+        }
+        .navbar{
+        background-color :#f2f2f2;
+        padding : 10 px;
+        overflow : hidden;
+
+        }
+        .nav-item{
+        float :left;
+        margin-right:15px;
+        }
+        .nav-item a{
+        text-decoration:none;
+        color:#333;
+        font-weight:bold;
+        }
+        .content-section{
+        padding : 20px;
+        background-color:#f9f9f9;
+        margin : 10 px 0;
+
+        }
+        .highlight{
+        background-color:yellow;
+        font-style:italic;
+        }
+
+    </style>
+</head>
+<body>
+<div id="main-header" >
+    <h1> Welcome to my Blog</h1>
+    <p>sharing knowledge and ideas</p>
+
+</div>
+<section>
+    <h2>Section Title</h2>
+    <p>content of the section goes here</p>
+
+</section>
+<div class="navbar">
+    <div class="nav-item"><a href="#home">Home</a></div>
+    <div class="nav-item"><a href="#about">About</a></div>
+    <div class="nav-item"><a href="#contact">contact</a></div>
+
+</div>
+
+<div class="content-section" id="home">
+    <h2>Home</h2>
+    <p>this is the home section of the block</p>
+</div>
+<div class="content-section" id="about">
+    <h2>about</h2>
+    <p class="highlight">i love to write about web development and technology</p>
+</div>
+<div class="content-section" id="contact">
+    <h2>contact</h2>
+    <p class="highlight">you can reach me at<strong>email@example.com</strong></p>
+</div>
+
+<div id="footer">
+    <p>&copy; 2025 my personal blog.all rights reserved.</p>
+</div>
+
+</body>
+</html>
+
