@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>KnowledgeNest</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/c4254e24a8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=Mozilla+Headline:wght@200..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: "Cinzel", serif;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            background: url("https://www.londonlibrary.co.uk/images/O.L/Public_tours_2024_/London_Library_Bookshop.jpg") no-repeat center center/cover;
+        }
+
+        .container {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .form-box {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 40px;
+            width: 350px;
+            text-align: center;
+            box-shadow: 0 0 10px #000;
+        }
+
+        .form-box h1 {
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .input-row {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid white;
+            padding: 5px 10px;
+        }
+
+        .input-row img {
+            width: 20px;
+            height: 20px;
+            margin-right: 10px;
+        }
+
+        .input-row input {
+            background: transparent;
+            border: none;
+            outline: none;
+            color: white;
+            width: 100%;
+        }
+
+        input::placeholder {
+            color: white;
+        }
+
+        .btn-field {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .btn-field button {
+            flex: 1;
+            padding: 10px;
+            margin: 0 5px;
+            background: #555;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn-field button:hover {
+            background: crimson;
+            transform: scale(1.05);
+        }
+
+        .back-btn {
+            margin-top: 20px;
+            background: transparent;
+            color: white;
+            border: 1px solid white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            background: crimson;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="form-box" id="formBox">
+        <h1 id="title">Welcome to KnowledgeNest</h1>
+        <form>
+            <div class="input-row">
+                <img src="https://cdn-icons-png.flaticon.com/512/561/561127.png" alt="email">
+                <input type="email" id="emailInput" placeholder="Email">
+            </div>
+
+            <div class="input-row">
+                <img src="https://cdn-icons-png.flaticon.com/512/3064/3064155.png" alt="password">
+                <input type="password" id="passwordInput" placeholder="Password">
+            </div>
+
+            <div class="btn-field">
+                <button type="button" id="signinBtn">Sign In</button>
+                <button type="button" id="loginBtn">Log In</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script>
+    const signinBtn = document.getElementById("signinBtn");
+    const loginBtn = document.getElementById("loginBtn");
+
+    const emailInput = document.getElementById("emailInput");
+    const passwordInput = document.getElementById("passwordInput");
+
+    const emailPattern = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
+    const passwordPattern = /^(?=.*[A-Z])(?=.*_)(?=.*\d).{8,}$/;
+
+    signinBtn.onclick = () => {
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        if (!email || !password) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        if (!emailPattern.test(email)) {
+            alert("Please enter a valid email.");
+            return;
+        }
+
+        if (!passwordPattern.test(password)) {
+            alert("Password must be at least 8 characters, include one uppercase letter, one underscore (_), and one digit.");
+            return;
+        }
+
+        if (localStorage.getItem(email)) {
+            alert("User already exists. Please log in.");
+        } else {
+            localStorage.setItem(email, JSON.stringify({ password }));
+            showWelcome(email, "registered");
+        }
+    };
+
+    loginBtn.onclick = () => {
+        const email = emailInput.value.trim();
+        const password = passwordInput.value;
+
+        if (!email || !password) {
+            alert("Please fill in all fields.");
+            return;
+        }
+
+        const userData = localStorage.getItem(email);
+        if (!userData) {
+            alert("No account found. Please sign in first.");
+            return;
+        }
+
+        const { password: storedPassword } = JSON.parse(userData);
+        if (password !== storedPassword) {
+            alert("Incorrect password.");
+            return;
+        }
+
+        showWelcome(email, "logged in");
+    };
+
+    function showWelcome(email, status) {
+        document.getElementById("formBox").innerHTML = `
+            <h1 style="color:white;">Welcome, ${email.split('@')[0]}!</h1>
+            <p style="color:white;">You have successfully ${status}.</p>
+            <button class="back-btn" onclick="location.reload()">Go Back</button>
+        `;
+    }
+</script>
+</body>
+</html>
