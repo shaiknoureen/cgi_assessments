@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> JAVASCRiPT VARIABLES</title>
+</head>
+<body>
+<h2>Calculator </h2>
+<input type = "number" id="num1">
+<input type = "number" id="num2"><br><br>
+<button onclick="calculate('+')">Add</button>
+<button onclick="calculate('-')">subtract</button>
+<button onclick="calculate('*')">multiply</button>
+<button onclick="calculate('/')">divide</button>
+<p id = "result"></p>
+<script>
+    function calculate(operator){
+   let n1 = parseFloat(document.getElementById("num1").value);
+   let n2 = parseFloat(document.getElementById("num2").value);
+    let result;
+    switch (operator) {
+    case '+':result = n1+n2; break;
+    case '-':result = n1-n2; break;
+    case '*':result = n1*n2; break;
+    case '/':result = n1/n2; break;
+    }
+    document.getElementById("result").innerText = "result :"+result;
+    }
+
+</script>
+
+</body>
+
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To-D0 List</title>
+</head>
+<body>
+<h2>To-D0 List</h2>
+<input type = "text" id = "taskInput" placeholder="enter task">
+<button onclick="addTask()">Add</button>
+<ul id = "tasklist"></ul>
+<script>
+  function addTask(){
+    let input = document.getElementById("taskInput").value;
+    if (input === "")return;
+    let li = document.createElement("li");
+    li.textContent = input;
+    li.onclick = () => li.remove();
+    document.getElementById("tasklist").appendChild(li);
+    document.getElementById("taskInput").value= "";
+  }
+
+</script>
+
+</body>
+</html>
+<html>
+<head>
+    <title>change background color</title>
+</head>
+<body>
+<h2>click the button to change background</h2>
+<button onclick="changeColor()">change color</button>
+
+<script>
+    function changeColor(){
+     const colors = ["lightblue","lightgreen","yellow","pink","orange"];
+    let random = Math.floor(Math.random()*colors.length);
+    document.body.style.background = colors[random];
+    }
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Live Clock</title>
+</head>
+<body>
+<h2>Digital Clock</h2>
+<h1 id = "clock"></h1>
+<script>
+    function updateClock(){
+    const now = new Date();
+    let time = now.toLocaleTimeString();
+    document.getElementById("clock").textContent = time
+    }
+    setInterval(updateClock,1000);
+    updateClock()
+</script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Validation</title>
+</head>
+<body>
+<h2>Register</h2>
+<form onsubmit="return ValidateForm()">
+    Name: <input type = "text" id = "name"><br><br>
+    Email: <input type = "email" id = "email"><br><br>
+    <button type = "submit">submit</button>
+</form>
+<p id = "error" style="color:red;"></p>
+<script>
+    function ValidateForm() {
+    let name = document.getElementById("name").value.trim()
+    let email = document.getElementById("email").value.trim()
+    if (name === "" || email ===""){
+    document.getElementById("error").textContent = "All fields are required!"
+    return false;
+    }
+    return True;
+    }
+</script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Var keyword Examples</title>
+</head>
+<body>
+<h2>open console to see the output</h2>
+<script>
+    function testVarScope(){
+    if (true){
+    var x = 10;
+    }
+    console.log("x is accessible outside if block :",x);
+    }
+    function testVarRedeclare(){
+
+    let b = 5;
+    let b = 10;
+    console.log("b after redeclaration:",b);
+    }
+    function testVarHoisting(){
+    console.log("value of y before declaration:",y);
+    var y = 20;
+    console.log("value of y after declaration:",y);
+    }
+    testVarScope();
+    testVarRedeclare();
+    testVarHoisting();
+
+</script>
+
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Javascript for loop example</title>
+</head>
+<body>
+<h2>for loop:numbers from 1 to 10</h2>
+<ul id ="output"></ul>
+<script>
+  const outputList = document.getElementById("output");
+  for(let i = 2;i<10;i++){
+  const li = document.createElement("li");
+  li.textContent = "number:"+i;
+  outputList.appendChild(li);
+  }
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Passed Students List</title>
+</head>
+<body>
+<h2>passed Students</h2>
+<button onclick = "showPassed()">show passed</button>
+<ul id = "studentList"></ul>
+<script>
+  const students = [{name:"vidya",score:90},{name:"Rashmi",score:95},{name:"divya",score:30},{name:"ram ya",score:50},{name:"vishnu",score:85}];
+  const showPassed = () => {
+  const passedStudents = students
+    .filter(student => student.score >= 50)
+    .map(student => `${student.name} - score:${student.score}`);
+
+  const list = document.getElementById("studentList")
+  list.innerHTML = "";
+  passedStudents.forEach(info=>{
+   const li = document.createElement("li");
+  li.textContent = info;
+  list.appendChild(li);
+  });
+  };
+
+</script>
+
+</body>
+</html>
+class Book {
+  constructor(title, author, isbn) {
+    this.title = title;
+    this.author = author;
+    this.isbn = isbn;
+    this.isAvailable = true;
+  }
+ 
+  checkout() {
+    if (!this.isAvailable) {
+      console.log(`${this.title} is already checked out.`);
+      return;
+    }
+    this.isAvailable = false;
+    console.log(`${this.title} has been checked out.`);
+  }
+ 
+  returnBook() {
+    if (this.isAvailable) {
+      console.log(`${this.title} was not checked out.`);
+      return;
+    }
+    this.isAvailable = true;
+    console.log(`${this.title} has been returned.`);
+  }
+}
+ 
+class Library {
+  constructor(name) {
+    this.name = name;
+    this.books = [];
+  }
+ 
+  addBook(book) {
+    const exists = this.books.some(b => b.isbn === book.isbn);
+    if (exists) {
+      console.log(`Book with ISBN ${book.isbn} already exists.`);
+      return;
+    }
+    this.books.push(book);
+    console.log(`${book.title} added to the library.`);
+  }
+ 
+  removeBook(isbn) {
+    const index = this.books.findIndex(book => book.isbn === isbn);
+    if (index === -1) {
+      console.log(`No book found with ISBN ${isbn}.`);
+      return;
+    }
+    const removed = this.books.splice(index, 1)[0];
+    console.log(`${removed.title} removed from the library.`);
+  }
+ 
+  findBook(title) {
+    const found = this.books.filter(book =>
+      book.title.toLowerCase().includes(title.toLowerCase())
+    );
+    if (found.length === 0) {
+      console.log(`No books found matching "${title}"`);
+      return;
+    }
+    console.log(`Books matching "${title}":`);
+    found.forEach(book => {
+      console.log(`- ${book.title} by ${book.author} [${book.isAvailable ? "Available" : "Checked out"}]`);
+    });
+  }
+ 
+  listBooks() {
+    if (this.books.length === 0) {
+      console.log("The library has no books.");
+      return;
+    }
+    console.log(`Books in ${this.name}:`);
+    this.books.forEach(book => {
+      console.log(`- ${book.title} by ${book.author} (${book.isAvailable ? "Available" : "Checked out"})`);
+    });
+  }
+}
+ 
+const library = new Library("City Central Library");
+ 
+const book1 = new Book("The Alchemist", "Paulo Coelho", "9780061122415");
+const book2 = new Book("Sapiens", "Yuval Noah Harari", "9780099590088");
+const book3 = new Book("The Alchemist", "Ben Jonson", "9780140436678");
+ 
+library.addBook(book1);
+library.addBook(book2);
+library.addBook(book3);
+library.listBooks();
+ 
+book1.checkout();
+book1.checkout();
+library.findBook("Alchemist");
+ 
+book1.returnBook();
+library.removeBook("9780061122415");
+library.listBooks();
+ 
