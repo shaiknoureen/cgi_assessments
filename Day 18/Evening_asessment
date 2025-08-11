@@ -1,0 +1,18 @@
+ <div>
+     <h1>Hello ,React!</h1>
+     <h1>Hello,{name}!</h1>
+     <p>this is the first react program on windows</p>
+function Greeting(props){
+
+  return <h1> Hello, {props.name}!</h1>
+
+}
+    </div>
+    <div>
+    <Greeting name = "keerthi"/>
+    <Greeting name = "harini"/>
+    </div>
+
+ const a = 20;
+   const b = 20;
+  return <h1> Sum: {a+b}</h1>
