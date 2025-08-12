@@ -1,0 +1,51 @@
+let age:number = 25;
+function greet(user: string): string{
+    return `Hello,${user}`;
+    }
+console.log(greet("noureen"))
+
+let numbers: number[] = [1,2,3];
+let colors : string[] = ["red","yellow","green"]
+let person:[string,number] = ["ram",30]
+console.log(`${person[0]} is ${person[1]}years old`);
+console.log(numbers);
+console.log(colors);
+
+function add(a:number,b:number):number{
+    return a+b;
+    }
+console.log("function output");
+console.log(add(5,10),"\n");
+
+class car{
+    brand : string;
+    year :number;
+    constructor(brand:string,year:number){
+
+
+     this.brand = brand;
+     this.year= year;
+     }
+     display():void{
+         console.log(` this is ${this.brand}-and the model is${this.year}`)
+         }
+
+   }
+console.log("class output");
+const mycar = new car("toyota",2020);
+mycar.display();
+console.log("");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
