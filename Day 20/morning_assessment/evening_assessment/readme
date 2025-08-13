@@ -1,0 +1,31 @@
+import logo from './logo.svg';
+import './App.css';
+import React from 'react';
+import welcome from "./components/welcome";
+
+function App(){
+  const name = "shaik noureen"
+  const year = new Date().getFullYear();
+  const isLoggedIn = false;
+  const fruits = ["apple","banana","mango"]
+  return(
+    <div>
+    <welcome />{/* using the welcome component */}
+    </div>
+
+   <div style={{ textAlign:"center",marginTop:"50px"}}>
+   <h1>{isLoggedIn ? "Welcome Back!":"please Log In"}</h1>
+   <h1>Hello,{name}!</h1>
+   <p>welcome to the first jsx page.</p>
+   <p> Current Year:{year}</p>
+   <h2>Fruit List</h2>
+   <ul>
+   {fruits.map((fruit,index)=>(<li key={index}>{fruit}</li>))}
+   </ul>
+   </div>
+   );
+
+
+}
+
+export default App;
