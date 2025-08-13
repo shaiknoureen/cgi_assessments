@@ -27,5 +27,61 @@ function App(){
 
 
 }
+import logo from './logo.svg';
+import './App.css';
+import React,{useState} from 'react';
+import Welcome from "./components/Welcome";
+
+function App(){
+  const [show,setShow] = useState(false);
+  const name = "shaik noureen"
+  const year = new Date().getFullYear();
+  const isLoggedIn = false;
+  const fruits = ["apple","banana","mango"]
+  return(
+    <div>
+    <button onClick = {()=>setShow(!show)}>{show ?"hide components":"show components"}</button>
+    {show &&(
+    <>
+    <Welcome name="shaik" />
+    <Welcome name="noureen" />{/* using the welcome component */}
+    </>
+    )}
+
+    </div>
+
+
+   );
+
+
+}
+
+export default App;
+import React,{useState,useEffect} from 'react';
+function Welcome(props){
+ const [count,setCount] = useState(0);
+ useEffect( () =>{
+ console.log(`welcome component for ${props.name} mounted`);
+  } ,[]);
+  useEffect( () =>{
+ console.log(`counter for ${props.name} updated to ${count}`);
+  } ,[count]);
+  useEffect( () =>{
+  return () =>{
+ console.log(`welcome component for ${props.name} unmounted`);
+ };
+  } ,[]);
+ return(
+  <div style={{ textAlign:"center",marginTop:"50px"}}>
+  <h1>Welcome,{props.name}</h1>
+  <h2>counter:{count}</h2>
+  <p> it is reusable component.</p>
+  <button onClick ={()=>setCount(count+1)}>Increase</button>
+  <button onClick ={()=>setCount(count-1)}>Decrease</button>
+  </div>
+);
+
+}
+export default Welcome;
 
 export default App;
