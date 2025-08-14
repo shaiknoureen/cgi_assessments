@@ -1,0 +1,144 @@
+import React,{useState}from 'react';
+export default function FormListing() {
+  const [name,setName] = useState("");
+  const [list,setList] = useState([]);
+  const handleSubmit = (e) =>{e.preventDefault();
+  if (name.trim() ===""){
+  alert("please enter a name");
+  return;
+  }
+  setList([list,name]);
+  setName("");
+  };
+  const handleDelete = (index)=>{
+  const newList = list.filter((_,i)=>i!==index);
+  setList(newList);
+  };
+  return(
+  <div style = {{padding:"20px",fontFamily:"Arial"}}>
+  <h2> Forms Listing Example</h2>
+  <form onSubmit={handleSubmit}>
+  <input type = "text" placeholder = "enter name" value = {name} onChange={(e)=> setName(e.target.value)}style={{padding:"8px",marginRight:"10px"}}/>
+  <button type="submit" style={{padding :"8px"}}>Add</button>
+  </form>
+  <ul style = {{marginTop:"20px"}}>
+  {list.map((item, index)=>(<li key={index} style={{marginBottom :"8px",display:"flex",alignItems:"center"}}>{item}<button onClick={()=>handleDelete(index)}
+  style={{marginLeft:"10px",padding:"4px 8px",background:"red",color:"white",border:"none",cursor:"pointer"}}>Delete</button></li>
+  ))}
+  </ul>
+  </div>
+);
+}
+app.js
+import logo from './logo.svg';
+
+import './App.css';
+
+import React, {useState} from 'react';
+
+import Welcome from "./components/Welcome";
+
+import FormListing from "./components/FormListing";
+
+function App(){
+
+
+return(
+<div>
+<FormListing />
+</div>
+
+);
+
+}
+
+export default App;
+ example for state,props,component
+App.js
+import React, { Component } from "react"; import UserList from "./UserList";
+import UserForm from "./UserForm";
+ 
+class App extends Component { constructor(props) { super(props);
+this.state = {
+users: ["John", "Alice"]
+};
+}
+ 
+addUser = (newUser) => { this.setState((prevState) => ({
+users: [...prevState.users, newUser]
+}));
+};
+ 
+render() { return (
+<div style={{ padding: "20px", textAlign: "center" }}>
+<h1>User Management App</h1>
+{/* Pass callback to child */}
+<UserForm onAddUser={this.addUser} />
+{/* Pass state to child */}
+<UserList users={this.state.users} />
+</div>
+);
+}
+}
+ 
+export default App;
+ 
+ 
+UserForm.js
+import React, { Component } from "react";
+ 
+class UserForm extends Component { constructor(props) {
+super(props); this.state = { name: ""
+};
+}
+ 
+handleChange = (e) => { this.setState({ name: e.target.value });
+};
+ 
+handleSubmit = (e) => { e.preventDefault();
+if (this.state.name.trim() === "") return; this.props.onAddUser(this.state.name); // Call parent function this.setState({ name: "" });
+};
+ 
+render() { return (
+<form onSubmit={this.handleSubmit} style={{ marginBottom: "20px" }}>
+<input type="text"
+value={this.state.name} onChange={this.handleChange} placeholder="Enter name"
+style={{ padding: "8px", marginRight: "5px" }}
+/>
+<button type="submit" style={{ padding: "8px" }}>Add User</button>
+</form>
+);
+}
+}
+ 
+export default UserForm;
+ 
+ 
+ 
+UserList.js
+import React, { Component } from "react";
+ 
+class UserList extends Component { render() {
+return (
+<div>
+<h2>Current Users:</h2>
+<ul style={{ listStyle: "none", padding: 0 }}>
+{this.props.users.map((user, index) => (
+<li
+key={index} style={{
+background: "#f4f4f4", margin: "5px auto", padding: "10px", width: "200px"
+}}
+>
+{user}
+</li>
+))}
+</ul>
+</div>
+);
+}
+}
+ 
+export default UserList;
+
+
+
