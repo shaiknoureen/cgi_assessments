@@ -1,0 +1,110 @@
+Project Title: Library Management System using Python
+
+Core and OOPs
+ 
+Purpose:
+
+The goal of this capstone project is to design a real-world simulation of a library using Python.
+
+The system must allow library administrators to manage books and members, and allow users to borrow and return books. The project serves as a comprehensive application of core
+
+Python (data types, control flow, functions, file handling, error handling) and object-oriented
+
+programming concepts (class, inheritance, polymorphism, encapsulation, abstraction).
+ 
+Expanded Problem Statement (with topics)
+
+1. Basic Python Concepts — MUST INCLUDE:
+
+Topic Use in the Project
+
+Data Types Strings for names, numbers for IDs and ISBN
+
+Control Flow if, for, while loops for book/member handling
+
+Functions Used for modular operations (like borrow, return, search)
+
+Lists & Dictionaries Store collections of books and members
+
+String Methods Format user messages, display info
+
+Input/Output Accept user input in CLI or GUI
+
+File Handling (optional) Save member and book data persistently
+ 
+2. Core OOP Concepts — MUST INCLUDE:
+
+OOP Concept Use in Project
+ 
+Class & Objects Represent Book, Member, Library entities
+
+Inheritance Subclassing Member into StudentMember,
+ 
+FacultyMember
+ 
+Polymorphism Overriding display_info() for each type
+
+Encapsulation Keep member data like borrowed books private
+
+Abstraction Hide internal logic of borrowing logic behind public methods
+ 
+3. Advanced Concepts — OPTIONAL / BONUS:
+
+Advanced Concept Use Case
+
+Exception Handling Prevent crash during wrong book/ID input
+
+JSON or SQLite Integration Persist data between sessions
+
+Logging Maintain logs of borrow/return actions
+
+Decorators (advanced) Add authentication/logging to methods
+
+DateTime Module Track issue/return dates for fine calculation
+
+Tkinter GUI (intermediate) Add a visual interface
+
+Flask Web App (advanced) Convert to web app
+
+Unit Testing Write test cases for each function/class
+
+CLI Menu System Use loops and conditionals to build console menu
+ 
+What the System Should Do
+
+Actor Feature
+
+Admin (Librarian) Add, remove, view books
+
+Admin Register members
+
+Member Borrow/return books
+
+Member View their borrowed books
+ 
+System Keep track of book availability
+
+System (optional) Raise fine for late returns
+
+System (optional) Save all data into a file or database
+ 
+Example Use Case Flow (Step-by-Step)
+
+1. Admin launches the application
+
+2. Admin adds new books into the system
+
+3. Admin registers two members
+
+4. Member logs in and borrows a book
+
+5. System checks if the book is available
+
+6. System updates the book as issued and adds it to member's record
+
+7. Member returns the book after 10 days
+
+8. If late return, system calculates fine
+
+9. Admin or Member can view current borrowed/available book.
+ 
