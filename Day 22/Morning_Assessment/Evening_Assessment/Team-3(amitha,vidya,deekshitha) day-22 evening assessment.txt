@@ -1,0 +1,56 @@
+LMS
+
+-os module is used to open files and navigate through files.
+
+-from datetime import datetime, timedelta is uses to  import two classes
+1. datetime
+This class is used to work with dates and times.
+
+2. timedelta
+This class represents a duration
+
+-from typing import Dict, List is used to import type hints from Python’s typing module. These help you specify the expected data types for variables, function parameters, and return values, making your code easier to understand and maintain.
+
+
+-DELIM-DELIM is a variable that represents a delimiter—a character or string used to separate fields in a text format. It's commonly used when preparing data for storage or transmission, especially in formats like CSV (Comma-Separated Values), TSV (Tab-Separated Values), or custom delimited formats.
+
+Uses-Using a delimiter helps ensure that:
+
+Each field (like book_id, title, author, etc.) is clearly separated.
+The data can be easily parsed or read later by splitting the string using the same delimiter.
+It maintains consistency in formatting across multiple records.
+
+-@staticmethod
+This is a static method that takes a single string line (likely from a file or database) and converts it into a Book object.
+This means the method belongs to the class but doesn't need access to self or cls. It's used for utility functions related to the class.
+
+-Attributes of the Book class:
+book_id (str)
+A unique identifier for the book (e.g., "B001").
+
+title (str)
+The title of the book (e.g., "Python Basics").
+
+author (str)
+The name of the author (e.g., "John Doe").
+
+isbn (str)
+The International Standard Book Number, a unique code for the book (e.g., "1234567890").
+
+available (bool, default is True)
+A flag indicating whether the book is available (True) or checked out (False).
+
+These attributes are stored in each instance of the Book class.
+
+- @property decorator:
+The @property decorator in Python is used to turn a method into a read-only attribute. This means you can access it like an attribute (without parentheses), but it behaves like a method behind the scenes.
+@property makes borrowed a read-only view of the private __borrowed list.
+It returns a copy (list(self.__borrowed)) to prevent external changes.
+This is a clean and safe way to expose internal data.
+
+-Purpose of from_line
+This method reconstructs a BaseMember (or subclass) object from a serialized string—typically read from a file or database. It's the reverse of the to_line() method, which serializes the object into a string.
+
+-def borrowed(self) -> List[dict]:
+The arrow -> is used for type hinting the return value of a function or method. It's part of Python's type annotations feature, which helps make code more readable and easier to debug.
+
